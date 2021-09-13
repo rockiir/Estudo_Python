@@ -1,6 +1,11 @@
 secreto = 'perfume'
 digitadas = []
+chances = 3
 while True:
+    if chances <= 0:
+        print('Você perdeu')
+        break
+
     letra =input('Digite uma letra: ')
     if len(letra) > 1:
         print('Ah isso não vale digite a proxima letra')
@@ -20,8 +25,18 @@ while True:
         else:
             secreto_temporario += '*'
 
+    if secreto_temporario == secreto:
+        print(f'QUe legal voce GANHOU!! a palavra secreta era {secreto_temporario}')
+        break
+    else:
+        print(f'A palavre secreta está assim {secreto_temporario}')
+
     print(secreto_temporario)
 
+    if letra not in secreto:
+        chances -= 1
+
+    print(f'voce ainda tem {chances} chances')
 
 
 
